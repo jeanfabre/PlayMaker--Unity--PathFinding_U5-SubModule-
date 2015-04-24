@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2015. All rights reserved.
 
 using UnityEngine;
 
@@ -52,7 +52,8 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnEnter()
 		{
-			_lastGo = destination.Value;
+			// force refresh
+			_lastGo = null;
 
 			_getAgent();
 			
