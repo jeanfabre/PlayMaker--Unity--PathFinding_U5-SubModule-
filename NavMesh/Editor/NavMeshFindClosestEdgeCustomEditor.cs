@@ -22,7 +22,7 @@ namespace HutongGames.PlayMakerEditor
 		public override bool OnGUI()
 		{
 			
-			NavMeshRaycast _target = (NavMeshRaycast)target;
+			NavMeshFindClosestEdge _target = (NavMeshFindClosestEdge)target;
 			
 			bool edited = false;
 			
@@ -44,7 +44,7 @@ namespace HutongGames.PlayMakerEditor
 			return GUI.changed || edited;
 		}
 		
-		bool EditMaskField(NavMeshRaycast _target)
+		bool EditMaskField(NavMeshFindClosestEdge _target)
 		{
 			bool edited = false;
 			
