@@ -1,5 +1,10 @@
 #PathFinding Change log
 
+###1.1
+**Update:** updated to Unity 5.5
+
+**Fix:** Fixed `NavMeshFindClosestEdge` action  
+
 ###1.0.1
 
 **Fix:** Fixed *SetAgentDestinationAsGameObject.cs* to refresh onEnter and force update of destination when coming back to the state. 
