@@ -1,5 +1,10 @@
 #PathFinding Change log
 
+###1.2
+**Release** 21/07/2017  
+
+**Fix:** Fixed and improved `NavMeshCalculatePath`, `NavMeshCalculatePathBetweenGameObjects` action and the `FsmNavMeshPath` proxy  
+
 ###1.1
 **Update:** updated to Unity 5.5
 

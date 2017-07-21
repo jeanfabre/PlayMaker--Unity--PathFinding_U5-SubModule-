@@ -1,15 +1,14 @@
 // (c) Copyright HutongGames, LLC 2010-2014. All rights reserved.
 
+#if UNITY_5_5_OR_NEWER
+
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory(ActionCategory.NavMeshAgent)]
-	[Tooltip("Set the flag to attempt to acquire a new path \n" +
-		"if the existing path of a NavMesh Agent becomes invalid \n" +
-		"or if the agent reaches the end of a partial and stale path. \n" +
-		"NOTE: The Game Object must have a NavMeshAgent component attached.")]
-	public class SetAgentAutoRepath : FsmStateAction
+	[Tooltip("Sets the stop or resume condition of the NavMesh agent. If set to True, the NavMesh agent's movement will be stopped along its current path. If set to False after the NavMesh agent has stopped, it will resume moving along its current path.")]
+	public class SetAgentIsStopped : FsmStateAction
 	{
 		[RequiredField]
 		[Tooltip("The Game Object to work with. NOTE: The Game Object must have a NavMeshAgent component attached.")]
@@ -17,7 +16,7 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmOwnerDefault gameObject;
 		
 		[RequiredField]
-		[Tooltip("Flag to attempt to acquire a new path if the existing path of a NavMesh Agent becomes invalid or if the agent reaches the end of a partial and stale path.")]
+		[Tooltip("The stop or resume condition of the NavMesh agent")]
 		public FsmBool isStopped;
 
 		private UnityEngine.AI.NavMeshAgent _agent;
@@ -44,20 +43,22 @@ namespace HutongGames.PlayMaker.Actions
 		{
 			_getAgent();
 			
-			DoSetAutoRepath();
+			DoSetIsStopped();
 
 			Finish();		
 		}
 		
-		void DoSetAutoRepath()
+		void DoSetIsStopped()
 		{
 			if (isStopped == null || _agent == null) 
 			{
 				return;
 			}
 			
-			_agent.autoRepath = isStopped.Value;
+			_agent.isStopped = isStopped.Value;
 		}
 
 	}
 }
+
+#endif
